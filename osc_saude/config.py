@@ -42,6 +42,15 @@ class Config:
     pausa_segundos: float = 1.0
     pasta_dados: Path = Path("data")
 
+    # Etapa opcional de e-mail (arquivos Estabelecimentos da Receita Federal).
+    # Desligada por padrão: baixa cerca de 22 GB.
+    enriquecer_email: bool = False
+    # Nome da pasta mais recente no site da Receita, no formato AAAA-MM.
+    # No notebook era fixo em "2026-09", o que quebrava todo mês.
+    mes_receita: str | None = None
+    # False: guarda os zips em data/raw para não baixar de novo.
+    apagar_zips: bool = False
+
     def __post_init__(self) -> None:
         # Falha cedo: uma UF digitada errada daria uma coleta vazia sem aviso.
         invalidas = [uf for uf in self.ufs if uf not in TODAS_UFS]
@@ -49,6 +58,16 @@ class Config:
             raise ValueError(f"UF inválida: {', '.join(invalidas)}")
         if not self.ufs:
             raise ValueError("Informe pelo menos uma UF.")
+        if self.enriquecer_email:
+            m = self.mes_receita or ""
+            formato_ok = len(m) == 7 and m[4] == "-" and m[:4].isdigit() and m[5:].isdigit()
+            if not formato_ok:
+                raise ValueError("Com e-mail ligado, informe mes_receita no formato AAAA-MM (ex.: 2026-09).")
+
+    @property
+    def pasta_zips(self) -> Path:
+        # Os zips são os mesmos no modo teste e na coleta completa.
+        return self.pasta_dados / "raw"
 
     @property
     def ufs_da_vez(self) -> tuple[str, ...]:
