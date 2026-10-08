@@ -117,7 +117,7 @@ def criar_parser() -> argparse.ArgumentParser:
     p.add_argument("--so-principal", action="store_true",
                    help="Exige CNAE de saúde no principal. Padrão: aceita também nos secundários.")
     p.add_argument("--com-email", action="store_true",
-                   help="Busca e-mails nos arquivos da Receita Federal (baixa cerca de 22 GB).")
+                   help="Busca e-mails nos arquivos da Receita Federal (baixa cerca de 5 GB).")
     p.add_argument("--mes-receita", metavar="AAAA-MM",
                    help="Pasta mais recente no site da Receita (ex.: 2026-09). Obrigatório com --com-email.")
     p.add_argument("--apagar-zips", action="store_true",

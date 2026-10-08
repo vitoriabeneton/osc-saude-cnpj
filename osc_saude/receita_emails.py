@@ -1,7 +1,7 @@
 """E-mail a partir dos arquivos Estabelecimentos da Receita Federal (antiga célula 6).
 
 A API Minha Receita devolve o campo email vazio, então o e-mail só vem destes
-arquivos: 10 zips de cerca de 2 GB cada. A etapa é opcional (config.enriquecer_email).
+arquivos: 10 zips, cerca de 5 GB no total. A etapa é opcional (config.enriquecer_email).
 """
 
 import csv

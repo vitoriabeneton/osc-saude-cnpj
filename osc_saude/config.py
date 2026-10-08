@@ -43,7 +43,7 @@ class Config:
     pasta_dados: Path = Path("data")
 
     # Etapa opcional de e-mail (arquivos Estabelecimentos da Receita Federal).
-    # Desligada por padrão: baixa cerca de 22 GB.
+    # Desligada por padrão: baixa cerca de 5 GB.
     enriquecer_email: bool = False
     # Nome da pasta mais recente no site da Receita, no formato AAAA-MM.
     # No notebook era fixo em "2026-09", o que quebrava todo mês.
