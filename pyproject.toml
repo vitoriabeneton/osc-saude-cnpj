@@ -1,0 +1,5 @@
+[tool.pytest.ini_options]
+# Coloca a raiz do projeto no caminho de importação dos testes,
+# para que "import osc_saude" funcione ao rodar só "pytest".
+pythonpath = ["."]
+testpaths = ["tests"]

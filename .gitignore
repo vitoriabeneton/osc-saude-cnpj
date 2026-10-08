@@ -1,0 +1,24 @@
+# Ambiente virtual
+.venv/
+
+# Cache do Python e do pytest
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Dados: nunca vão para o GitHub.
+# Os checkpoints têm nomes de dirigentes (qsa), telefones e e-mails.
+data/
+*.csv
+*.jsonl
+*.zip
+*.part
+*.tmp
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Editor e sistema operacional
+.vscode/
+Thumbs.db
+.DS_Store

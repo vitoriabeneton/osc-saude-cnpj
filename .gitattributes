@@ -1,0 +1,3 @@
+# Quebra de linha padronizada em LF no repositório e na cópia local,
+# independente da configuração do Git de cada máquina.
+* text=auto eol=lf
